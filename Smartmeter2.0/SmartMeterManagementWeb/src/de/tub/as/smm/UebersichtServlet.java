@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import de.tub.as.smm.dao.SmartMeterDao;
 import de.tub.as.smm.dao.UserDao;
 import de.tub.as.smm.models.SmartMeter;
-import de.tub.as.smm.models.User;
 
 @WebServlet("/uebersicht")
 public class UebersichtServlet extends HttpServlet {
@@ -53,20 +52,11 @@ public class UebersichtServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if(request.getParameter("kennung") != null){
-		String kennung = request.getParameter("kennung");
-		String maxStärke = request.getParameter("maxStaerke");
-		sm.persist(new SmartMeter(kennung, maxStärke));
-		System.out.println("sm");
+			String kennung = request.getParameter("kennung");
+			String maxStärke = request.getParameter("maxStaerke");
+			sm.persist(new SmartMeter(kennung, maxStärke));
 		
-		}else if(request.getParameter("name") != null){
-			String name = request.getParameter("name");
-			String passwort = request.getParameter("passwort");
-			u.anmelden();
-			u.persist(new User(name,passwort));
-			request.setAttribute("angemeldet", u.istAngemeldet());
-			
 		}
-		
 		
 		doGet(request, response);
 	}

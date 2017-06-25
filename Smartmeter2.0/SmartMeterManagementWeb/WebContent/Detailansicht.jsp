@@ -168,10 +168,9 @@
             </table>
 
           
-        <!-- SmartMeter hinzufügen -->
+        <!-- Ablesung hinzufügen -->
 		<div class="container">
-			<button id="addSM" type="button" class="btn btn-info "
-				data-toggle="modal" data-target="#myModal1">Ablesen</button>
+			<button id="addSM" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1">Ablesen</button>
 			<div class="modal fade" id="myModal1" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -180,38 +179,32 @@
 						</div>
 						<div class="modal-body">
 						
-						     <% if(session.getAttribute("username")== null){
+							 <!-- Prüfung ob user angemeldet ist -->
+						    <% if(session.getAttribute("username")== null){
 									%>Bitte Log dich erst ein. <a href="user">Login</a><% 
-	
 									}else{
 							%>  
-						
-							<!-- form for user input -->
-							<form id="formID" action="detailansicht" onsubmit="return submitEintrag();"
-								method="POST">
+		
+							<!-- Wenn user eingeloggt ist -->
+							<form id="formID" action="detailansicht" onsubmit="return submitEintrag();" method="POST">
 								Abzulesendes Smart-Meter
 								<input class="form-control" type="text" name="kennung" readonly="readonly" value="<%=sm.getKennung()%>" /><br>
-								Nutzerkennung <input type="text" class="form-control"
-									id="Nuterkennung" name="nutzerkennung" value="${username}" readonly="readonly"><br> Verbrauchswert
-	
-									<input
-									type="text" class="form-control" id="verbrauchswert" name="verbrauchswert"><br>
-								<br> <input type="Submit" class="btn btn-success"
-									onclick="submitEintrag()" value="Absenden">
+								Nutzerkennung 
+								<input type="text" class="form-control" id="Nuterkennung" name="nutzerkennung" value="${username}" readonly="readonly"><br> 
+								Verbrauchswert
+								<input type="text" class="form-control" id="verbrauchswert" name="verbrauchswert"><br><br> 
+								<input type="Submit" class="btn btn-success" onclick="submitEintrag()" value="Absenden">
 							</form>
-									<%
-									}
-									%>
+							<%
+							}
+							%>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						</div>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
             
 

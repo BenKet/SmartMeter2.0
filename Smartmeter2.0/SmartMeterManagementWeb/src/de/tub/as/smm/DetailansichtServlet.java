@@ -33,17 +33,12 @@ public class DetailansichtServlet extends HttpServlet{
             HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         	
-        	
-        	HttpSession session = request.getSession();
         	request.getRequestDispatcher("/Detailansicht.jsp").forward(request, response);;
         }
 	
 	protected void doGetValue(
         HttpServletRequest request, HttpServletResponse response, String kennung)
             throws ServletException, IOException {
-    	
-    	
-    	HttpSession session = request.getSession();
     	
             request.setAttribute("sm", sm.getDetailSmartMeter(kennung));
             request.setAttribute("ne", ne.getAllNutzereintraege(kennung));
@@ -55,8 +50,6 @@ public class DetailansichtServlet extends HttpServlet{
         HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
-    	
-        
         String kennung = request.getParameter("kennung");
         String nutzerkennung = request.getParameter("nutzerkennung");
         String verbrauchswert = request.getParameter("verbrauchswert");
