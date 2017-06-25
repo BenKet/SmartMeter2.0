@@ -43,9 +43,6 @@ public class UebersichtServlet extends HttpServlet {
 			
 			request.setAttribute("sm", sm.getAllSmartMeter());
 			request.getRequestDispatcher("/uebersicht.jsp").forward(request, response);
-		}else if(session.getAttribute("username") != null){
-			request.setAttribute("sm", sm.getAllSmartMeter());
-			request.getRequestDispatcher("/uebersicht.jsp").forward(request, response);
 		}else{
 			request.setAttribute("sm", sm.getAllSmartMeter());
 			request.getRequestDispatcher("/uebersicht.jsp").forward(request, response);;
