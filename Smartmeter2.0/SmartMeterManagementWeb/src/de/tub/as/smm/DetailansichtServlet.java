@@ -35,12 +35,7 @@ public class DetailansichtServlet extends HttpServlet{
         	
         	
         	HttpSession session = request.getSession();
-        	
-        	if(session.getAttribute("username") != null){
-        		response.sendRedirect("user");
-    		}else{
-    			response.sendRedirect("user");
-    		}
+        	request.getRequestDispatcher("/Detailansicht.jsp").forward(request, response);;
         }
 	
 	protected void doGetValue(
@@ -50,13 +45,9 @@ public class DetailansichtServlet extends HttpServlet{
     	
     	HttpSession session = request.getSession();
     	
-    	if(session.getAttribute("username") != null){
             request.setAttribute("sm", sm.getDetailSmartMeter(kennung));
             request.setAttribute("ne", ne.getAllNutzereintraege(kennung));
             request.getRequestDispatcher("/Detailansicht.jsp").forward(request, response);
-		}else{
-			response.sendRedirect("user");
-		}
     }
  
     @Override

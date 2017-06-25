@@ -18,7 +18,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="css/Übersicht.css">
+	<link rel="stylesheet" href="css/uebersicht.css">
 	
     <!-- Javascript for random number and KhW entry feature -->
     <script>
@@ -61,13 +61,7 @@
 <body>
 <div id="main">
 
-	<% if(session.getAttribute("username")== null){
-		%>Bitte Log dich erst ein. <a href="user">Login</a><% 
-	
-	}else{
-	%>
-
-        <a href="übersicht" class="glyphicon glyphicon-triangle-left"> Zurück</a>
+        <a href="uebersicht" class="glyphicon glyphicon-triangle-left"> Zurück</a>
         <h1>Detailansicht</h1><br>
 
         <!-- Image of the smartMeter -->
@@ -173,7 +167,7 @@
                 </tbody>
             </table>
 
-            
+          
         <!-- SmartMeter hinzufügen -->
 		<div class="container">
 			<button id="addSM" type="button" class="btn btn-info "
@@ -185,6 +179,13 @@
 							<h4 class="modal-title">Ablesung</h4>
 						</div>
 						<div class="modal-body">
+						
+						     <% if(session.getAttribute("username")== null){
+									%>Bitte Log dich erst ein. <a href="user">Login</a><% 
+	
+									}else{
+							%>  
+						
 							<!-- form for user input -->
 							<form id="formID" action="detailansicht" onsubmit="return submitEintrag();"
 								method="POST">
@@ -198,6 +199,9 @@
 								<br> <input type="Submit" class="btn btn-success"
 									onclick="submitEintrag()" value="Absenden">
 							</form>
+									<%
+									}
+									%>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
@@ -216,7 +220,6 @@
 			<%
 			}
 			}
-	}
 		%>
 
 </body>
